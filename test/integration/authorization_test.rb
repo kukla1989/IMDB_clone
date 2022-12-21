@@ -32,7 +32,7 @@ class AuthorizationTest < ActionDispatch::IntegrationTest
 
    test "user cant create account with existed email" do
      assert_no_difference 'User.count' do
-       post user_registration_path, params: {user: {email: "roma@mail.com",
+       post user_registration_path, params: {user: {email: "roma@gmail.com",
                                                     password: "password"}}
      end
    end
