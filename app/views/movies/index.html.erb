@@ -1,10 +1,28 @@
-<% if user_signed_in? %>
-  <div> Welcome <%= current_user.email %> </div>
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %>
-<% end %>
+<div class="row">
 
+  <div class="column left" style="margin: 3em; margin-right: 0;">
+    <%= form_with   method: "get"  do |f| %>
+      <%= f.label "choose subject" %>
+      <%= f.select :subject, %w{adventure action drama comedy thriller horror documentary},
+                   {}, {class: "form-control", style: "width: 50%"} %>
+      <br>
+      <%= f.submit "show", class: "btn btn-primary" %>
+    <% end %>
+    <br><br>
+  </div>
 
+  <div class=<%= mobile? ? "main_mobile" : "main column right"%> style="margin-left: 0;">
+  <% unless @movies.any? %>
+    <h3>unfortunatly there no one movie with this subject but you can ask admin to create!</h3>
+    <%= link_to "Create movie", new_movie_path %>
+  <% end %>
+  <div class="pagination">
+    <%= will_paginate @movies%>
+  </div>
+  <%= render @movies %>
+  <div class="pagination">
+    <%= will_paginate @movies%>
+  </div>
+</div>
 
-<h1>Movies</h1>
+</div>

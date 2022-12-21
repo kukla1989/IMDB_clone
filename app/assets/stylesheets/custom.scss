@@ -1,3 +1,32 @@
+$light-gray: #777;
 body{
   background-color: #d5d2d2;
+}
+
+.main_mobile {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+@mixin main {
+  margin: auto;
+  margin-bottom: 2em;
+  margin-left: 0;
+  padding: 1em;
+  border: 3px solid #0595ef;
+  display: block;
+}
+
+.main {
+  @include main;
+  width: 65%;
+  margin: auto;
+  margin-top: 3em;
+}
+
+small-gray {
+  color: $light-gray;
+  font-size: small;
+  text-align: center;
+  margin: 0;
 }
