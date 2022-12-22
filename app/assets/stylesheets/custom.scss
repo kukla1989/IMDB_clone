@@ -1,6 +1,7 @@
 $light-gray: #777;
+$bright-blue: #1a1aff;
 body{
-  background-color: #d5d2d2;
+  background-color: #E5E5E5;
 }
 
 .main_mobile {
@@ -11,7 +12,6 @@ body{
 @mixin main {
   margin: auto;
   margin-bottom: 2em;
-  margin-left: 0;
   padding: 1em;
   border: 3px solid #0595ef;
   display: block;
@@ -20,7 +20,7 @@ body{
 .main {
   @include main;
   width: 65%;
-  margin: auto;
+  margin: auto!important;
   margin-top: 3em;
 }
 
@@ -29,4 +29,8 @@ small-gray {
   font-size: small;
   text-align: center;
   margin: 0;
+}
+
+.nav{
+  margin-top: 0!important;
 }

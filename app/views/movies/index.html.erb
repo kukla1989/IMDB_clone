@@ -5,11 +5,12 @@
       <%= f.label "choose subject" %>
       <%= f.select :subject, %w{adventure action drama comedy thriller horror documentary},
                    {}, {class: "form-control", style: "width: 50%"} %>
-      <br>˚
+      <br>
       <%= f.submit "show", class: "btn btn-primary" %>
     <% end %>
     <br><br>
   </div>
+  <h1 style="text-align: center;"> Movies</h1>
 
   <div class=<%= mobile? ? "main_mobile" : "main column right"%>, style="margin-left: 0;">
   <% unless @movies.any? %>

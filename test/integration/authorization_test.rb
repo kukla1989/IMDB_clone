@@ -1,7 +1,6 @@
 require "test_helper"
 
 class AuthorizationTest < ActionDispatch::IntegrationTest
-   include Devise::Test::IntegrationHelpers
     include Warden::Test::Helpers
   test "should display login page" do
     get new_user_session_path
