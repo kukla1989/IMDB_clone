@@ -1,5 +1,9 @@
 <div class="movie">
     <h3><%= movie.title %></h3>
+    <p>
+      <strong>Category:</strong>
+      <p><%= movie.category.title  %>
+    </p>
     <p> <%= movie.description %></p>
     <div style="display:flex;">
         <%= link_to "edit", edit_movie_path(movie), class: "btn btn-primary", style: "margin-right: 0.7em;" %>

@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[show edit update destroy]
+  before_action :set_categories
 
   def index
     @movies = Movie.all.paginate(page: params[:page])
@@ -42,10 +43,14 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :content, :subject)
+    params.require(:movie).permit(:title, :description, :category_id)
   end
 
   def set_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.all.order(:title)
   end
 end

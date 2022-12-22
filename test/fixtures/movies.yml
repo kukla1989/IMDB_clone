@@ -1,13 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
-  average_rating: 1
-  category_id: 1
+agent:
+  title: "agent 007"
+  description: "some cool description"
+  average_rating: 8
+  category: comedy
 
-two:
-  title: MyString
-  description: MyText
-  average_rating: 1
-  category_id: 1
+
+<% 33.times do |n| %>
+movie<%= n %>:
+  title: <%= "title number  - #{n}"%>
+  description: <%= Faker::Lorem.sentence(word_count: 4)%>
+  average_rating: 8
+  category: comedy
+  <% end %>

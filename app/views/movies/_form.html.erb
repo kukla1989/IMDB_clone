@@ -1,0 +1,13 @@
+  <%= render 'shared/errors', object: movie %>
+  <%= form_with(model: movie) do |f| %>
+    <%= f.select :category_id, options_for_select(@categories.collect{|cat| [cat.title, cat.id]}),
+                                 {class: "form-control", style: "width: 30%;"} %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", style: "width: 30%;" %>
+    <%= f.label :description %>
+    <%= f.text_area :description,  class: "form-control" %>
+    <br>
+    <%= f.submit type, class: "btn btn-primary" %>
+  <% end %>
+
+

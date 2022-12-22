@@ -22,6 +22,6 @@ class HeaderTest < ActionDispatch::IntegrationTest
   test "header should appear in show movie" do
     get movie_path(Movie.first)
     assert_select "nav.navbar"
-    assert_select "a.nav-link[href=?]", root_path
+    assert_select "a.navbar-brand[href=?]", root_path
   end
 end

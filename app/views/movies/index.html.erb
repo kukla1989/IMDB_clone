@@ -2,9 +2,9 @@
 
   <div class="column left" style="margin: 3em; margin-right: 0;">
     <%= form_with   method: "get"  do |f| %>
-      <%= f.label "choose subject" %>
-      <%= f.select :subject, %w{adventure action drama comedy thriller horror documentary},
-                   {}, {class: "form-control", style: "width: 50%"} %>
+      <%= f.label "choose category" %>
+      <%= f.select :category_id, options_for_select(@categories.collect{|cat| [cat.title, cat.id]}),
+                   {class: "form-control", style: "width: 30%;"} %>
       <br>
       <%= f.submit "show", class: "btn btn-primary" %>
     <% end %>
