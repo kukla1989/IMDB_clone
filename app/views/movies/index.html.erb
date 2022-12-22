@@ -15,14 +15,16 @@
   <div class=<%= mobile? ? "main_mobile" : "main column right"%>, style="margin-left: 0;">
   <% unless @movies.any? %>
     <h3>unfortunatly there no one movie with this subject but you can ask admin to create!</h3>
-    <%= link_to "Create movie", new_movie_path %>
+      <% if admin? %>
+        <%= link_to "Create movie", new_movie_path %>
+      <% end %>
   <% end %>
   <div class="pagination">
-    <%= will_paginate @movies%>
+    <%= will_paginate @movies, class: "digg_pagination" %>
   </div>
   <%= render @movies %>
   <div class="pagination">
-    <%= will_paginate @movies%>
+    <%= will_paginate @movies, class: "digg_pagination"%>
   </div>
 </div>
 

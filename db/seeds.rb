@@ -5,13 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-horror = Category.create title: "Horror"
-western = Category.create title: "Western"
-Category.create title: "Documentary"
-33.times do |i|
-  if i % 2 == 1
-    Movie.create title: "Title № #{i}", description: "some description" * 15, category: horror, average_rating: i / 3
-  else
-    Movie.create title: "Title № #{i}", description: "some description" * 15, category: western, average_rating: i / 3
-  end
+categories = %w{Horror Western Documentary Comedy Action Fantasy Mystery Fiction Romance}
+categories.each { |title| Category.create(title: title) }
+33.times do
+    Movie.create title: Faker::Movie.title, description: Faker::Lorem.sentence(word_count: 20),
+                 category: Category.all.sample(1)[0], average_rating: 9
 end

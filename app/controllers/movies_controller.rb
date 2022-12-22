@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[show edit update destroy]
   before_action :set_categories
+  before_action :admin, only: %i[edit update destroy]
 
   def index
     @movies = Movie.all.paginate(page: params[:page])
@@ -52,5 +53,9 @@ class MoviesController < ApplicationController
 
   def set_categories
     @categories = Category.all.order(:title)
+  end
+
+  def admin
+    redirect_to root_path, status: :see_other unless helpers.admin?
   end
 end

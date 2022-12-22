@@ -1,0 +1,4 @@
+<h3 style="width:50%;margin:auto; margin-top:1em;">update movie <%= @movie.title %></h3>
+<div class=<%= mobile? ? "main_mobile" : "main" %>>
+  <%= render "form", movie: @movie, type: "update" %>
+</div>
