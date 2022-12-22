@@ -6,9 +6,11 @@
     </p>
     <p> <%= movie.description %></p>
     <div style="display:flex;">
-        <%= link_to "edit", edit_movie_path(movie), class: "btn btn-primary", style: "margin-right: 0.7em;" %>
-        <%= link_to "delete", movie, class: "btn btn-primary", data:
+        <% if admin? %>
+          <%= link_to "edit", edit_movie_path(movie), class: "btn btn-primary", style: "margin-right: 0.7em;" %>
+           <%= link_to "delete", movie, class: "btn btn-primary", data:
                     {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% end %>
     </div>
       <span class="small-gray">
         Posted - <%= time_ago_in_words(movie.created_at, "data-local": "time-ago") %> ago

@@ -6,5 +6,10 @@
 #
 
 roma:
+  email: roma1@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+admin:
   email: roma@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  admin: true

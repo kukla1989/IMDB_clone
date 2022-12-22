@@ -24,4 +24,10 @@ class HeaderTest < ActionDispatch::IntegrationTest
     assert_select "nav.navbar"
     assert_select "a.navbar-brand[href=?]", root_path
   end
+
+  test "only admin should see 'new movie' button" do
+    sign_in users(:admin)
+    get root_path
+    assert_select "a.nav-link[href=?]", new_movie_path
+  end
 end

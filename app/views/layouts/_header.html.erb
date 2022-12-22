@@ -18,7 +18,9 @@
             <%= link_to "Log in/sign up", new_user_session_path , class: "nav-link"%>
         </li>
       <% end %>
-      <%= link_to "new movie", new_movie_path, class: "nav-link" %>
+      <% if admin? %>
+        <%= link_to "new movie", new_movie_path, class: "nav-link" %>
+        <% end %>
     </ul>
   </div>
 </nav>
