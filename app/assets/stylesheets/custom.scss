@@ -87,3 +87,33 @@ small-gray {
 *:first-child + html .digg_pagination {
   overflow: hidden;
 }
+
+//-----------------footer------------
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 3px solid #d9d9d9;
+  color:$bright-blue!important;
+
+  a {
+    color: #555;
+
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
