@@ -4,7 +4,11 @@ class MoviesController < ApplicationController
   before_action :admin, except:  %i[index show]
 
   def index
-    @movies = Movie.all.includes(:category).paginate(page: params[:page])
+    if params[:category]
+      @movies = Movie.where(category: Category.find_by_title(params[:category])).paginate(page: params[:page])
+    else
+      @movies = Movie.all.paginate(page: params[:page])
+    end
   end
 
   def new
