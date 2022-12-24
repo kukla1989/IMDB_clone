@@ -1,9 +1,24 @@
 <div class="movie">
-    <h3><%= movie.title %></h3>
+    <% if @movies %>
+       <h3><%= link_to movie.title, movie_path(movie) %></h3>
+    <% else  %>
+       <h3><%= movie.title %></h3>
+    <% end %>
     <p>
       <strong>Category:</strong>
       <%= movie.category.title  %>
     </p>
+  <p id="rate_note"></p>
+  <% if user_signed_in? %>
+      <%= form_with(url: rates_create_path, method: :get, model: movie.active_rates.build) do |f| %>
+        <div><%= hidden_field_tag :movie_id,  movie.id %></div>
+        <%= f.select :rating, options_for_select((0..10).collect{ |el| [el.to_s, el] }),
+                    {class: "form-control", style: "width: 30%;"} %>
+        <%= f.submit "rate", class: "btn btn-primary" %>
+      <% end %>
+  <% end %>
+
+
     <p> <%= movie.description %></p>
     <div style="display:flex;">
         <% if admin? %>

@@ -1,3 +1,7 @@
 <div class=<%= mobile? ? "main_mobile" : "main" %>>
+  <p>
+    <strong id="rating">Rating:</strong>
+    <%= @movie.average_rating %>
+  </p>
   <%= render @movie %>
 </div>

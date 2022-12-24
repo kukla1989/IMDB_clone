@@ -6,6 +6,8 @@
     <%= f.text_field :title, class: "form-control", style: "width: 30%;" %>
     <%= f.label :description %>
     <%= f.text_area :description,  class: "form-control" %>
+    <%= f.label :rating %>
+    <%= f.number_field :average_rating, in: 1..10, step: 1 %>
     <br>
     <%= f.submit type, class: "btn btn-primary" %>
   <% end %>

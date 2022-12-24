@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'movies/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-   root "movies#index"
   resources :movies
+  get 'movies/index'
+  get 'rates/create'
+  root "movies#index"
 end
