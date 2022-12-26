@@ -8,7 +8,6 @@
       <strong>Category:</strong>
       <%= movie.category.title  %>
     </p>
-  <p id="rate_note"></p>
   <% if user_signed_in? %>
       <%= form_with(url: rates_create_path, method: :get, model: movie.active_rates.build) do |f| %>
         <div><%= hidden_field_tag :movie_id,  movie.id %></div>

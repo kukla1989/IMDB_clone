@@ -12,8 +12,8 @@ class RatesController < ApplicationController
     @movie.average_rating = rates.inject(0){|acc, el| acc + el.rating} / rates.length
     @movie.save
     respond_to do |format|
-      format.html {redirect_to root_path}
       format.turbo_stream
+      format.html {redirect_to request.referrer}
     end
   end
 
